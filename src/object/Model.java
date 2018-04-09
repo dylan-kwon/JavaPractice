@@ -47,11 +47,14 @@ public class Model implements Cloneable{
 
         Model model = (Model) o;
 
-        return id == model.id;
+        if (id != model.id) return false;
+        return value == model.value;
     }
 
     @Override
     public int hashCode() {
-        return id;
+        int result = id;
+        result = 31 * result + value;
+        return result;
     }
 }
